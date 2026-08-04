@@ -1,0 +1,20 @@
+# Python / Virtual Environment
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+
+# PyCharm / IDE files
+.idea/
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Output image files (optional - ignores test watermarked images)
+watermarked_*.png
+watermarked_*.jpg
