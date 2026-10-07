@@ -1,0 +1,48 @@
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# API keys / tokens / credentials
+token.txt
+credentials.json
+secrets.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Node / JavaScript
+node_modules/
+dist/
+build/
+
+# IDE / OS
+.vscode/
+.idea/
+*.code-workspace
+.DS_Store
+Thumbs.db
+
+# Python local databases
+*.sqlite3
+
+# Logs
+*.log
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated/media files
+*.mp3
+*.wav
+*.m4a
+
+# Sample/input documents
+*.pdf
+
