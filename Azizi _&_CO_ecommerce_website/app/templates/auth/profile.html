@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}My Profile | AZIZI & CO{% endblock %}
+{% block namespace %}profile{% endblock %}
+
+{% block content %}
+<div class="mx-auto max-w-[1200px] px-5 py-12 sm:px-8 lg:px-12">
+    <div class="mb-10">
+        <h1 class="text-3xl font-black tracking-tight text-white">My Account</h1>
+        <p class="mt-2 text-xs text-neutral-400">Manage your profile and view your order history.</p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+        <!-- Profile Card -->
+        <div class="h-fit rounded-3xl border border-white/10 bg-white/[0.02] p-8 backdrop-blur-md">
+            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-white/5 text-xl font-bold text-[#dfbb96] border border-white/10">
+                {{ current_user.name[0]|upper if current_user.name else current_user.email[0]|upper }}
+            </div>
+            <h2 class="mt-6 text-lg font-bold text-white">{{ current_user.name }}</h2>
+            <p class="text-xs text-neutral-400">{{ current_user.email }}</p>
+
+            <div class="mt-8 pt-6 border-t border-white/5">
+                <a href="{{ url_for('auth.logout') }}" class="block w-full rounded-full border border-white/15 bg-white/5 py-3 text-center text-xs font-bold uppercase tracking-widest text-white transition-all hover:bg-white hover:text-black">
+                    Sign Out
+                </a>
+            </div>
+        </div>
+
+        <!-- Orders Overview -->
+        <div class="rounded-3xl border border-white/10 bg-white/[0.02] p-8 lg:col-span-2">
+            <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400 mb-6">Recent Orders</h3>
+
+            {% if orders %}
+                <div class="space-y-4">
+                    {% for order in orders %}
+                    <div class="flex items-center justify-between rounded-2xl border border-white/5 bg-black/50 p-5">
+                        <div>
+                            <p class="text-xs font-bold text-white">Order #{{ order.id }}</p>
+                            <p class="text-[10px] text-neutral-500 mt-1">{{ order.date.strftime('%B %d, %Y') }}</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm font-black text-[#dfbb96]">${{ "%.2f"|format(order.total_amount) }}</p>
+                            <span class="mt-1 inline-block rounded-full bg-white/5 px-2 py-0.5 text-[9px] uppercase tracking-wider text-neutral-300 border border-white/10">
+                                {{ order.status }}
+                            </span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="py-12 text-center">
+                    <p class="text-xs uppercase tracking-widest text-neutral-500">You haven't placed any orders yet.</p>
+                    <a href="{{ url_for('shop.index') }}" class="mt-4 inline-block text-[10px] font-bold uppercase text-[#dfbb96] hover:underline">Start Shopping &rarr;</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

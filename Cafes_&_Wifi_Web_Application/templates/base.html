@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Work From Cafe{% endblock %}</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --brand-primary: #3c2a21;     /* Deep Espresso */
+            --brand-accent: #1a120b;      /* Dark Coffee */
+            --brand-secondary: #e5e5e5;   /* Light Gray */
+            --brand-gold: #d4a373;        /* Warm Gold Accent */
+        }
+
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Top Bar */
+        .top-banner {
+            background-color: var(--brand-accent);
+            color: var(--brand-gold);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Navigation Styling */
+        .custom-navbar {
+            background-color: #ffffff;
+            border-bottom: 2px solid #f1f1f1;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            color: var(--brand-primary) !important;
+            font-size: 1.4rem;
+        }
+
+        /* Custom Buttons */
+        .btn-brand-primary {
+            background-color: var(--brand-primary);
+            color: #ffffff;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-brand-primary:hover {
+            background-color: var(--brand-accent);
+            color: var(--brand-gold);
+        }
+
+        /* Footer Styling */
+        footer {
+            margin-top: auto;
+            background-color: var(--brand-accent);
+            color: #e5e5e5;
+        }
+
+        footer a {
+            color: var(--brand-gold);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .feature-badge {
+            font-size: 0.8rem;
+            padding: 0.4em 0.7em;
+            border-radius: 20px;
+        }
+
+        .card {
+            border: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top Announcement Bar -->
+<div class="top-banner py-2 text-center">
+    <span><i class="fa-solid fa-mug-saucer me-2"></i>Find top-rated laptop-friendly spots in London!</span>
+</div>
+
+<!-- Navigation Header -->
+<nav class="navbar navbar-expand-lg custom-navbar shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="{{ url_for('home') }}">
+            <i class="fa-solid fa-mug-hot me-2" style="color: var(--brand-gold);"></i>WorkFromCafe
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse id=" navbarNav
+        ">
+        <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item me-2">
+                <a class="btn btn-outline-dark" href="{{ url_for('home') }}#cafe-grid">Explore Cafes</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-brand-primary" href="{{ url_for('add_cafe') }}">
+                    <i class="fa-solid fa-plus me-1"></i> Add Cafe
+                </a>
+            </li>
+        </ul>
+    </div>
+    </div>
+</nav>
+
+<!-- Main Content Area -->
+<main class="container my-5">
+    <!-- Flash Messages Container -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }} alert-dismissible fade show shadow-sm border-0 rounded-3 mb-4" role="alert">
+        <i class="fa-solid {{ 'fa-circle-check text-success' if category == 'success' else 'fa-triangle-exclamation text-danger' }} me-2"></i>
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+</main>
+
+<!-- Footer Section -->
+<footer class="pt-5 pb-3">
+    <div class="container">
+        <div class="row g-4 mb-4">
+            <div class="col-md-5">
+                <h5 class="fw-bold text-white mb-3"><i class="fa-solid fa-mug-hot me-2"
+                                                       style="color: var(--brand-gold);"></i>WorkFromCafe</h5>
+                <p class="text-secondary small">A community-driven directory helping remote workers, freelancers, and
+                    students discover high-speed internet cafe locations with great coffee.</p>
+            </div>
+            <div class="col-md-3 offset-md-1">
+                <h6 class="fw-bold text-white mb-3">Quick Navigation</h6>
+                <ul class="list-unstyled small">
+                    <li class="mb-2"><a href="{{ url_for('home') }}">Home Directory</a></li>
+                    <li class="mb-2"><a href="{{ url_for('home') }}#cafe-grid">Explore All Locations</a></li>
+                    <li class="mb-2"><a href="{{ url_for('add_cafe') }}">Submit a New Cafe</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h6 class="fw-bold text-white mb-3">Amenities Tracked</h6>
+                <ul class="list-unstyled small text-secondary">
+                    <li class="mb-1"><i class="fa-solid fa-wifi text-success me-2"></i>High-Speed WiFi</li>
+                    <li class="mb-1"><i class="fa-solid fa-plug text-warning me-2"></i>Power Sockets</li>
+                    <li class="mb-1"><i class="fa-solid fa-phone text-info me-2"></i>Call-Friendly Zones</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="border-secondary">
+
+        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center pt-2 small text-secondary">
+            <p class="mb-0">&copy; {{ 2026 }} Asadullah Aziz's WorkFromCafe Platform. Built for developers & remote
+                workers.</p>
+            <div>
+                <a href="#" class="text-secondary me-3"><i class="fa-brands fa-github fa-lg"></i></a>
+                <a href="#" class="text-secondary"><i class="fa-brands fa-twitter fa-lg"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

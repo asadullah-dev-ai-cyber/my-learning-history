@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-center my-4">
+    <h1 class="display-5 fw-bold">Find Your Next Work Sanctuary</h1>
+    <p class="text-muted lead">Discover work-friendly cafes with high-speed WiFi, power outlets, and great coffee.</p>
+</div>
+
+<!-- Multi-Feature Search & Filter Bar -->
+<div class="card p-4 shadow-sm rounded-4 mb-5 border-0 bg-white">
+    <form action="{{ url_for('search_cafe') }}" method="GET">
+        <div class="row g-3 align-items-center">
+            <!-- Text Input -->
+            <div class="col-lg-5 col-md-12">
+                <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
+                    <input type="text" name="location" value="{{ search_query or '' }}" class="form-control bg-light border-start-0" placeholder="Search by name or location (e.g., Soho)...">
+                </div>
+            </div>
+
+            <!-- Feature Checkboxes -->
+            <div class="col-lg-5 col-md-8">
+                <div class="d-flex flex-wrap gap-3 align-items-center h-100 ps-1">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="has_wifi" value="true" id="filter_wifi" {{ 'checked' if has_wifi }}>
+                        <label class="form-check-label small fw-semibold" for="filter_wifi"><i class="fa-solid fa-wifi text-success me-1"></i>WiFi</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="has_sockets" value="true" id="filter_sockets" {{ 'checked' if has_sockets }}>
+                        <label class="form-check-label small fw-semibold" for="filter_sockets"><i class="fa-solid fa-plug text-warning me-1"></i>Sockets</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="can_take_calls" value="true" id="filter_calls" {{ 'checked' if can_take_calls }}>
+                        <label class="form-check-label small fw-semibold" for="filter_calls"><i class="fa-solid fa-phone text-info me-1"></i>Calls</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="has_toilet" value="true" id="filter_toilet" {{ 'checked' if has_toilet }}>
+                        <label class="form-check-label small fw-semibold" for="filter_toilet"><i class="fa-solid fa-restroom text-primary me-1"></i>Restroom</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="col-lg-2 col-md-4 d-flex gap-2">
+                <button type="submit" class="btn btn-brand-primary w-100 fw-bold rounded-3">Filter</button>
+                {% if search_query or has_wifi or has_sockets or can_take_calls or has_toilet %}
+                    <a href="{{ url_for('home') }}" class="btn btn-outline-secondary rounded-3" title="Reset Filters"><i class="fa-solid fa-rotate-left"></i></a>
+                {% endif %}
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- Cafe Cards Grid -->
+<div id="cafe-grid" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-2">
+    {% for cafe in cafes %}
+    <div class="col">
+        <div class="card h-100 shadow-sm rounded-4 overflow-hidden">
+            <img src="{{ cafe.img_url }}"
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=80';"
+                 class="card-img-top"
+                 style="height: 220px; object-fit: cover;"
+                 alt="{{ cafe.name }}">
+
+            <div class="card-body d-flex flex-column p-4">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h5 class="card-title fw-bold mb-0">{{ cafe.name }}</h5>
+                    <span class="badge bg-light text-dark border">{{ cafe.coffee_price }}</span>
+                </div>
+                <p class="text-muted small mb-3"><i class="fa-solid fa-location-dot me-1"></i>{{ cafe.location }}</p>
+
+                <div class="d-flex flex-wrap gap-2 mb-4">
+                    <span class="feature-badge {{ 'bg-success-subtle text-success' if cafe.has_wifi else 'bg-danger-subtle text-danger' }}">
+                        <i class="fa-solid fa-wifi me-1"></i>WiFi
+                    </span>
+                    <span class="feature-badge {{ 'bg-success-subtle text-success' if cafe.has_sockets else 'bg-danger-subtle text-danger' }}">
+                        <i class="fa-solid fa-plug me-1"></i>Power
+                    </span>
+                    <span class="feature-badge {{ 'bg-success-subtle text-success' if cafe.can_take_calls else 'bg-danger-subtle text-danger' }}">
+                        <i class="fa-solid fa-phone me-1"></i>Calls
+                    </span>
+                    <span class="feature-badge {{ 'bg-success-subtle text-success' if cafe.has_toilet else 'bg-danger-subtle text-danger' }}">
+                        <i class="fa-solid fa-restroom me-1"></i>Restroom
+                    </span>
+                </div>
+
+                <div class="mt-auto d-flex justify-content-between align-items-center pt-3 border-top">
+                    <small class="text-muted"><i class="fa-solid fa-chair me-1"></i>{{ cafe.seats }} seats</small>
+                    <div>
+                        <a href="{{ cafe.map_url }}" target="_blank" class="btn btn-sm btn-outline-secondary me-1">Maps</a>
+
+                        <!-- Updated Delete Trigger Button -->
+                        <button type="button"
+                                class="btn btn-sm btn-outline-danger"
+                                data-bs-toggle="modal"
+                                data-bs-target="#deleteModal"
+                                data-cafe-id="{{ cafe.id }}"
+                                data-cafe-name="{{ cafe.name }}">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Global Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 border-0 shadow">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title fw-bold text-danger" id="deleteModalLabel">
+                    <i class="fa-solid fa-triangle-exclamation me-2"></i>Confirm Deletion
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body py-3">
+                <p class="mb-0">Are you sure you want to delete <strong id="modalCafeName">this cafe</strong>? This action cannot be undone.</p>
+            </div>
+            <div class="modal-footer border-0 pt-0">
+                <button type="button" class="btn btn-light rounded-3 fw-semibold" data-bs-dismiss="modal">Cancel</button>
+                <form id="deleteForm" method="POST" action="">
+                    <button type="submit" class="btn btn-danger rounded-3 fw-semibold">Delete Cafe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JS Script to dynamically assign cafe details to the Modal -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const deleteModal = document.getElementById('deleteModal');
+        if (deleteModal) {
+            deleteModal.addEventListener('show.bs.modal', function (event) {
+                const button = event.relatedTarget;
+                const cafeId = button.getAttribute('data-cafe-id');
+                const cafeName = button.getAttribute('data-cafe-name');
+
+                const modalCafeName = deleteModal.querySelector('#modalCafeName');
+                const deleteForm = deleteModal.querySelector('#deleteForm');
+
+                modalCafeName.textContent = `'${cafeName}'`;
+                deleteForm.action = `/delete/${cafeId}`;
+            });
+        }
+    });
+</script>
+{% endblock %}

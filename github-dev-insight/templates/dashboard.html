@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% block title %}{{ user_profile.login }} - DevInsight Dashboard{% endblock %}
+
+{% block content %}
+<div style="margin-bottom: 2rem;">
+    <a href="/" style="color: var(--accent-cyan); text-decoration: none; font-weight: 500;">&larr; Back to Search</a>
+</div>
+
+<!-- Header Info, Tier & Joined Date -->
+<div class="card-3d" style="margin-bottom: 2rem;">
+    <div class="profile-header-flex">
+        {% if user_profile.avatar_url %}
+            <img src="{{ user_profile.avatar_url }}" alt="Avatar" class="avatar">
+        {% endif %}
+        <div>
+            <h2>{{ user_profile.name or user_profile.login }}</h2>
+            <p style="color: var(--accent-cyan); font-size: 0.95rem; margin-top: 0.2rem;">
+                @{{ user_profile.login }} &bull; <span style="color: #4ade80;">{{ analytics.scores.overall_tier }}</span>
+            </p>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.3rem;">
+                📅 Joined {{ analytics.joined_date }}
+            </p>
+            <p style="color: var(--text-muted); margin-top: 0.6rem;">{{ user_profile.bio or 'No bio available' }}</p>
+        </div>
+    </div>
+</div>
+
+<!-- Dynamic Scoring Section -->
+<h3 style="margin-bottom: 1rem;">Developer Performance Metrics</h3>
+<div class="dashboard-grid" style="margin-bottom: 2.5rem;">
+    <div class="card-3d">
+        <h4 style="color: var(--text-muted); font-size: 0.9rem;">Quality Index</h4>
+        <h2 style="color: var(--accent-cyan); font-size: 2.2rem; margin: 0.5rem 0;">{{ analytics.scores.quality_score }}/100</h2>
+        <div style="background: rgba(255,255,255,0.05); height: 6px; border-radius: 3px;">
+            <div style="background: var(--accent-cyan); height: 100%; width: {{ analytics.scores.quality_score }}%;"></div>
+        </div>
+    </div>
+    <div class="card-3d">
+        <h4 style="color: var(--text-muted); font-size: 0.9rem;">Tech Diversity</h4>
+        <h2 style="color: #a855f7; font-size: 2.2rem; margin: 0.5rem 0;">{{ analytics.scores.diversity_score }}/100</h2>
+        <div style="background: rgba(255,255,255,0.05); height: 6px; border-radius: 3px;">
+            <div style="background: #a855f7; height: 100%; width: {{ analytics.scores.diversity_score }}%;"></div>
+        </div>
+    </div>
+    <div class="card-3d">
+        <h4 style="color: var(--text-muted); font-size: 0.9rem;">Activity Index</h4>
+        <h2 style="color: #4ade80; font-size: 2.2rem; margin: 0.5rem 0;">{{ analytics.scores.activity_score }}/100</h2>
+        <div style="background: rgba(255,255,255,0.05); height: 6px; border-radius: 3px;">
+            <div style="background: #4ade80; height: 100%; width: {{ analytics.scores.activity_score }}%;"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Visualizations & Repo Overview -->
+<div class="dashboard-grid" style="margin-bottom: 2.5rem;">
+    <div class="card-3d">
+        <h3>Language Breakdown Chart</h3>
+        <div style="max-height: 280px; margin-top: 1rem;">
+            <canvas id="languageChart"></canvas>
+        </div>
+    </div>
+
+    <div class="card-3d">
+        <h3>Repository Overview</h3>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <small style="color: var(--text-muted);">Total Stars</small>
+                <span>{{ analytics.total_stars }}</span>
+            </div>
+            <div class="stat-box">
+                <small style="color: var(--text-muted);">Total Forks</small>
+                <span>{{ analytics.total_forks }}</span>
+            </div>
+            <div class="stat-box">
+                <small style="color: var(--text-muted);">Public Repos</small>
+                <span>{{ user_profile.public_repos }}</span>
+            </div>
+            <div class="stat-box">
+                <small style="color: var(--text-muted);">Most Starred</small>
+                <span style="font-size: 0.9rem; margin-top: 0.5rem;">{{ analytics.most_starred }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Top Repositories Grid -->
+<h3 style="margin-bottom: 1rem;">Top Repositories</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+    {% for repo in analytics.top_repos %}
+    <div class="card-3d" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <a href="{{ repo.html_url }}" target="_blank" rel="noopener" style="color: var(--text-main); font-weight: 600; text-decoration: none; font-size: 1.1rem;">
+                    📁 {{ repo.name }}
+                </a>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.4; margin-bottom: 1rem;">
+                {{ repo.description }}
+            </p>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid var(--card-border); padding-top: 0.75rem;">
+            <span>🟡 {{ repo.language }}</span>
+            <span>⭐ {{ repo.stars }} &bull; 🍴 {{ repo.forks }}</span>
+            <span>📦 {{ repo.size_kb }}</span>
+        </div>
+    </div>
+    {% else %}
+        <p style="color: var(--text-muted);">No repositories available.</p>
+    {% endfor %}
+</div>
+
+<!-- Chart.js Script -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const langData = {{ analytics.languages | tojson }};
+        const labels = Object.keys(langData);
+        const values = Object.values(langData);
+
+        if (labels.length > 0) {
+            const ctx = document.getElementById('languageChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: values,
+                        backgroundColor: ['#6366f1', '#38bdf8', '#a855f7', '#4ade80', '#f59e0b', '#ec4899'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#94a3b8' } }
+                    }
+                }
+            });
+        }
+    });
+</script>
+{% endblock %}

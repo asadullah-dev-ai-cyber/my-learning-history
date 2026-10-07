@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}Add New Cafe - WorkFromCafe{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center my-4">
+    <div class="col-md-8 col-lg-6">
+        <div class="card p-4 shadow-sm rounded-4 border-0">
+            <h2 class="fw-bold mb-4 text-center" style="color: var(--brand-primary);">
+                <i class="fa-solid fa-square-plus me-2" style="color: var(--brand-gold);"></i>Add a New Cafe
+            </h2>
+
+            <form action="{{ url_for('add_cafe') }}" method="POST">
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Cafe Name</label>
+                    <input type="text" name="name" class="form-control" required placeholder="e.g. Central Perk">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Location / Neighborhood</label>
+                    <input type="text" name="location" class="form-control" required placeholder="e.g. Shoreditch, London">
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-semibold">Google Maps URL</label>
+                        <input type="url" name="map_url" class="form-control" required placeholder="https://maps.google.com/...">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-semibold">Image URL</label>
+                        <input type="url" name="img_url" class="form-control" required placeholder="https://images.unsplash.com/...">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-semibold">Seat Capacity</label>
+                        <input type="text" name="seats" class="form-control" placeholder="e.g. 20-30" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-semibold">Coffee Price</label>
+                        <input type="text" name="coffee_price" class="form-control" placeholder="e.g. £2.50">
+                    </div>
+                </div>
+
+                <!-- Amenities Switch Controls -->
+                <h5 class="fw-semibold mt-4 mb-3" style="color: var(--brand-primary);">Amenities</h5>
+                <div class="row g-3 mb-4">
+                    <div class="col-6">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" name="has_wifi" id="wifi">
+                            <label class="form-check-label" for="wifi"><i class="fa-solid fa-wifi text-success me-1"></i>Has WiFi?</label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" name="has_sockets" id="sockets">
+                            <label class="form-check-label" for="sockets"><i class="fa-solid fa-plug text-warning me-1"></i>Has Power Sockets?</label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" name="can_take_calls" id="calls">
+                            <label class="form-check-label" for="calls"><i class="fa-solid fa-phone text-info me-1"></i>Can Take Calls?</label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" name="has_toilet" id="toilet">
+                            <label class="form-check-label" for="toilet"><i class="fa-solid fa-restroom text-primary me-1"></i>Has Restroom?</label>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-brand-primary w-100 py-2 fs-5 rounded-3">
+                    <i class="fa-solid fa-plus me-1"></i> Submit New Cafe
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

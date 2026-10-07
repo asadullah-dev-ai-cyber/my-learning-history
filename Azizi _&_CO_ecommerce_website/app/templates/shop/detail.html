@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.name }} | AZIZI & CO{% endblock %}
+{% block namespace %}product_detail{% endblock %}
+
+{% block content %}
+<div class="mx-auto max-w-[1500px] px-5 py-16 sm:px-8 lg:px-12">
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
+
+        <!-- Media Viewport with Image Fix -->
+        <div class="overflow-hidden rounded-3xl border border-white/10 bg-neutral-950">
+            {% if product.images and product.images[0].image_url %}
+                {% set img = product.images[0].image_url %}
+                {% if img.startswith('http://') or img.startswith('https://') %}
+                    <img src="{{ img }}" alt="{{ product.name }}" class="h-full w-full object-cover">
+                {% elif img.startswith('images/') or img.startswith('static/') %}
+                    <img src="{{ url_for('static', filename=img.replace('static/', '')) }}" alt="{{ product.name }}" class="h-full w-full object-cover">
+                {% else %}
+                    <img src="{{ url_for('static', filename='images/products/' + img) }}" alt="{{ product.name }}" class="h-full w-full object-cover">
+                {% endif %}
+            {% else %}
+                <img src="{{ url_for('static', filename='images/placeholder.png') }}" alt="{{ product.name }}" class="h-full w-full object-cover">
+            {% endif %}
+        </div>
+
+        <!-- Info Block -->
+        <div class="flex flex-col justify-center space-y-8">
+            <div>
+                <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-[#dfbb96]">Engineered Technology</span>
+                <h1 class="mt-2 text-4xl font-black text-white">{{ product.name }}</h1>
+                <p class="mt-4 text-2xl font-bold text-[#dfbb96]">${{ "%.2f"|format(product.price) }}</p>
+            </div>
+
+            <p class="text-sm leading-relaxed text-neutral-400">
+                {{ product.description }}
+            </p>
+
+            <form action="{{ url_for('cart.add_to_cart', product_id=product.id) }}" method="POST" class="space-y-4 pt-4">
+                <button type="submit" class="w-full rounded-full bg-[#dfbb96] py-4 text-xs font-bold uppercase tracking-[0.2em] text-[#050505] transition-all hover:bg-[#ebd0b4]">
+                    Add To Cart
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

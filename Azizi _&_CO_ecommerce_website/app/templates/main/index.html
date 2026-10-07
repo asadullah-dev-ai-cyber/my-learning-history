@@ -1,0 +1,3396 @@
+{% extends 'base.html' %}
+
+{% block title %}
+AZIZI & CO — Digital Showroom
+{% endblock %}
+
+{% block content %}
+
+
+<!-- =========================================================
+     AZIZI & CO
+     CINEMATIC DIGITAL SHOWROOM
+========================================================= -->
+
+<section
+    id="azizi-showroom"
+    class="
+        relative
+        h-[560vh]
+        overflow-clip
+        bg-[#050505]
+        text-white
+    "
+>
+
+
+    <!-- =====================================================
+         STICKY CINEMATIC STAGE
+    ====================================================== -->
+
+    <div
+        class="
+            sticky
+            top-0
+            h-screen
+            overflow-hidden
+        "
+    >
+
+
+        <!-- =================================================
+             AMBIENT BACKGROUND
+        ================================================== -->
+
+        <div
+            class="
+                showroom-bg
+                absolute
+                inset-0
+            "
+        ></div>
+
+
+        <div
+            class="
+                showroom-noise
+                pointer-events-none
+                absolute
+                inset-0
+            "
+        ></div>
+
+
+        <!-- LIGHT SWEEP -->
+
+        <div
+            id="light-sweep"
+            class="
+                absolute
+                -left-[35%]
+                -top-[30%]
+                h-[180%]
+                w-[18%]
+                rotate-[22deg]
+                bg-white/[0.045]
+                blur-3xl
+            "
+        ></div>
+
+
+        <!-- =================================================
+             TOP BRAND
+        ================================================== -->
+
+        <div
+            class="
+                absolute
+                left-6
+                top-6
+                z-50
+                sm:left-10
+                sm:top-9
+                lg:left-14
+            "
+        >
+
+            <div
+                class="
+                    text-[10px]
+                    font-semibold
+                    tracking-[0.45em]
+                    text-white/55
+                "
+            >
+                AZIZI & CO
+            </div>
+
+
+            <div
+                class="
+                    mt-2
+                    text-[7px]
+                    tracking-[0.32em]
+                    text-white/20
+                "
+            >
+                DIGITAL TECHNOLOGY
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             HERO COPY
+        ================================================== -->
+
+        <div
+            id="showroom-copy"
+            class="
+                pointer-events-none
+                absolute
+                inset-0
+                z-30
+                flex
+                items-center
+                justify-center
+                px-6
+                text-center
+            "
+        >
+
+
+            <!-- INTRO -->
+
+            <div
+                id="copy-intro"
+                class="max-w-6xl"
+            >
+
+                <div
+                    class="
+                        mb-6
+                        text-[9px]
+                        font-semibold
+                        uppercase
+                        tracking-[0.55em]
+                        text-[#d6b08b]/70
+                    "
+                >
+                    AZIZI & CO — DIGITAL SHOWROOM
+                </div>
+
+
+                <h1 class="showroom-heading">
+                    EXPERIENCE
+                </h1>
+
+
+                <p
+                    class="
+                        mx-auto
+                        mt-7
+                        max-w-xl
+                        text-sm
+                        leading-7
+                        text-white/40
+                        sm:text-base
+                    "
+                >
+                    Premium technology,
+                    thoughtfully selected
+                    for the way you live,
+                    work and move.
+                </p>
+
+
+                <div
+                    class="
+                        pointer-events-auto
+                        mt-9
+                        flex
+                        items-center
+                        justify-center
+                        gap-3
+                    "
+                >
+
+                    <a
+                        href="#collection"
+                        class="
+                            rounded-full
+                            bg-white
+                            px-7
+                            py-3.5
+                            text-[9px]
+                            font-bold
+                            uppercase
+                            tracking-[0.18em]
+                            text-black
+                            transition
+                            duration-300
+                            hover:scale-105
+                        "
+                    >
+                        Explore collection
+                    </a>
+
+
+                    <span
+                        class="
+                            flex
+                            h-11
+                            w-11
+                            items-center
+                            justify-center
+                            rounded-full
+                            border
+                            border-white/10
+                            text-white/40
+                        "
+                    >
+                        ↓
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- AUDIO -->
+
+            <div
+                id="copy-audio"
+                class="
+                    absolute
+                    max-w-4xl
+                    opacity-0
+                "
+            >
+
+                <div
+                    class="
+                        mb-4
+                        text-[9px]
+                        uppercase
+                        tracking-[0.55em]
+                        text-[#d6b08b]/70
+                    "
+                >
+                    01 — AUDIO
+                </div>
+
+
+                <h2 class="showroom-section-title">
+
+                    Sound changes
+
+                    <span>
+                        everything.
+                    </span>
+
+                </h2>
+
+            </div>
+
+
+            <!-- WEARABLES -->
+
+            <div
+                id="copy-wearables"
+                class="
+                    absolute
+                    max-w-4xl
+                    opacity-0
+                "
+            >
+
+                <div
+                    class="
+                        mb-4
+                        text-[9px]
+                        uppercase
+                        tracking-[0.55em]
+                        text-[#d6b08b]/70
+                    "
+                >
+                    02 — WEARABLES
+                </div>
+
+
+                <h2 class="showroom-section-title">
+
+                    Technology,
+
+                    <span>
+                        closer.
+                    </span>
+
+                </h2>
+
+            </div>
+
+
+            <!-- ACCESSORIES -->
+
+            <div
+                id="copy-accessories"
+                class="
+                    absolute
+                    max-w-4xl
+                    opacity-0
+                "
+            >
+
+                <div
+                    class="
+                        mb-4
+                        text-[9px]
+                        uppercase
+                        tracking-[0.55em]
+                        text-[#d6b08b]/70
+                    "
+                >
+                    03 — ACCESSORIES
+                </div>
+
+
+                <h2 class="showroom-section-title">
+
+                    Finish the
+
+                    <span>
+                        experience.
+                    </span>
+
+                </h2>
+
+            </div>
+
+
+            <!-- FINAL -->
+
+            <div
+                id="copy-final"
+                class="
+                    absolute
+                    max-w-5xl
+                    opacity-0
+                "
+            >
+
+                <div
+                    class="
+                        mb-5
+                        text-[9px]
+                        uppercase
+                        tracking-[0.55em]
+                        text-[#d6b08b]/70
+                    "
+                >
+                    AZIZI & CO
+                </div>
+
+
+                <h2 class="showroom-final-title">
+
+                    TECHNOLOGY
+
+                    <br>
+
+                    <span>
+                        REIMAGINED.
+                    </span>
+
+                </h2>
+
+
+                <a
+                    href="{{ url_for('shop.index') }}"
+                    class="
+                        pointer-events-auto
+                        mt-8
+                        inline-flex
+                        items-center
+                        gap-4
+                        rounded-full
+                        bg-white
+                        px-7
+                        py-3.5
+                        text-xs
+                        font-bold
+                        uppercase
+                        tracking-[0.15em]
+                        text-black
+                        transition
+                        duration-300
+                        hover:scale-105
+                    "
+                >
+
+                    Explore collection
+
+                    <span class="text-base">
+                        ↗
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PRODUCT / WEBSITE PANELS
+        ================================================== -->
+
+        <div
+            id="showroom-panels"
+            class="
+                absolute
+                left-1/2
+                top-[55%]
+                z-20
+                flex
+                w-[1300px]
+                -translate-x-1/2
+                -translate-y-1/2
+                items-center
+                justify-center
+                gap-6
+                md:gap-8
+            "
+        >
+
+
+            <!-- =================================================
+                 LEFT AUDIO PANEL
+            ================================================== -->
+
+            <article
+                id="panel-left"
+                class="
+                    showroom-panel
+                    panel-left
+                "
+            >
+
+                <div class="browser-bar">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                    <div class="browser-url">
+                        azizi.co / audio
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="
+                        panel-content
+                        panel-audio
+                    "
+                >
+
+                    <div class="panel-mini-nav">
+
+                        <b>
+                            AZIZI & CO
+                        </b>
+
+                        <small>
+                            Audio
+                        </small>
+
+                    </div>
+
+
+                    <div class="panel-copy">
+
+                        <small>
+                            PURE SOUND
+                        </small>
+
+                        <h3>
+                            Air
+                            <br>
+                            Pulse
+                        </h3>
+
+                        <p>
+                            Immersive sound.
+                        </p>
+
+                    </div>
+
+
+                    <div class="fake-headphones">
+
+                        <div
+                            class="
+                                cup
+                                cup-left
+                            "
+                        ></div>
+
+                        <div class="headband"></div>
+
+                        <div
+                            class="
+                                cup
+                                cup-right
+                            "
+                        ></div>
+
+                    </div>
+
+
+                    <div class="panel-bottom">
+
+                        <span>
+                            EXPLORE AUDIO
+                        </span>
+
+                        <span>
+                            ↗
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 CENTER FEATURE PANEL
+            ================================================== -->
+
+            <article
+                id="panel-center"
+                class="
+                    showroom-panel
+                    panel-center
+                "
+            >
+
+                <div class="browser-bar">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                    <div class="browser-url">
+                        azizi.co / collection
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="
+                        panel-content
+                        panel-feature
+                    "
+                >
+
+                    <div class="panel-mini-nav">
+
+                        <b>
+                            AZIZI & CO
+                        </b>
+
+                        <small>
+                            Collection
+                        </small>
+
+                    </div>
+
+
+                    <div class="feature-copy">
+
+                        <small>
+                            DESIGNED FOR TOMORROW
+                        </small>
+
+                        <h3>
+                            Every detail
+                            <br>
+                            designed to
+                            <br>
+                            redefine.
+                        </h3>
+
+                    </div>
+
+
+                    <div class="feature-product">
+
+                        {% if products and products|length > 0 and products[0].images %}
+
+                            <img
+                                src="{{ products[0].images[0].image_url }}"
+                                alt="{{ products[0].name }}"
+                            >
+
+                        {% else %}
+
+                            <div class="abstract-product"></div>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <div class="feature-pill">
+
+                        <span>
+                            Discover the collection
+                        </span>
+
+                        <span>
+                            ↗
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 RIGHT WEARABLE PANEL
+            ================================================== -->
+
+            <article
+                id="panel-right"
+                class="
+                    showroom-panel
+                    panel-right
+                "
+            >
+
+                <div class="browser-bar">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                    <div class="browser-url">
+                        azizi.co / wearables
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="
+                        panel-content
+                        panel-wearable
+                    "
+                >
+
+                    <div class="panel-mini-nav">
+
+                        <b>
+                            AZIZI & CO
+                        </b>
+
+                        <small>
+                            Wearables
+                        </small>
+
+                    </div>
+
+
+                    <div class="wearable-copy">
+
+                        <small>
+                            STAY IN MOTION
+                        </small>
+
+                        <h3>
+                            Technology
+                            <br>
+                            around
+                            <br>
+                            your world.
+                        </h3>
+
+                    </div>
+
+
+                    <div class="fake-watch">
+
+                        <div class="watch-face">
+
+                            <div class="watch-time">
+                                10:09
+                            </div>
+
+                            <div class="watch-ring"></div>
+
+                        </div>
+
+                        <div class="watch-band"></div>
+
+                    </div>
+
+
+                    <div class="panel-bottom">
+
+                        <span>
+                            VIEW WEARABLES
+                        </span>
+
+                        <span>
+                            ↗
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- =================================================
+             FLOATING INFORMATION
+        ================================================== -->
+
+        <div
+            id="floating-chip-1"
+            class="floating-chip"
+        >
+
+            <span class="chip-dot"></span>
+
+            Precision engineered
+
+        </div>
+
+
+        <div
+            id="floating-chip-2"
+            class="floating-chip"
+        >
+
+            <span class="chip-dot"></span>
+
+            Built for everyday
+
+        </div>
+
+
+        <!-- =================================================
+             SCROLL PROMPT
+        ================================================== -->
+
+        <div
+            id="scroll-prompt"
+            class="
+                absolute
+                bottom-8
+                left-1/2
+                z-40
+                -translate-x-1/2
+                text-center
+            "
+        >
+
+            <div
+                class="
+                    text-[8px]
+                    uppercase
+                    tracking-[0.55em]
+                    text-white/30
+                "
+            >
+                Scroll to explore
+            </div>
+
+
+            <div
+                class="
+                    mx-auto
+                    mt-4
+                    h-10
+                    w-px
+                    overflow-hidden
+                    bg-white/10
+                "
+            >
+
+                <div
+                    id="scroll-line"
+                    class="
+                        h-full
+                        origin-top
+                        scale-y-0
+                        bg-white/70
+                    "
+                ></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PERCENT -->
+
+        <div
+            id="scroll-percent"
+            class="
+                absolute
+                bottom-9
+                right-7
+                z-40
+                text-[9px]
+                tracking-[0.3em]
+                text-white/25
+                sm:right-10
+            "
+        >
+            00
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     COLLECTION
+========================================================= -->
+
+<section
+    id="collection"
+    class="
+        relative
+        z-20
+        overflow-hidden
+        bg-[#050505]
+        px-5
+        py-32
+        sm:px-8
+        lg:px-12
+        lg:py-40
+    "
+>
+
+
+    <div class="mx-auto max-w-[1500px]">
+
+
+        <!-- SECTION HEADING -->
+
+        <div
+            class="
+                mb-16
+                flex
+                flex-col
+                justify-between
+                gap-8
+                md:mb-20
+                md:flex-row
+                md:items-end
+            "
+        >
+
+            <div>
+
+                <p
+                    class="
+                        mb-4
+                        text-[9px]
+                        font-semibold
+                        uppercase
+                        tracking-[0.55em]
+                        text-[#d6b08b]/70
+                    "
+                >
+                    THE COLLECTION
+                </p>
+
+
+                <h2
+                    class="
+                        max-w-3xl
+                        text-4xl
+                        font-semibold
+                        leading-[.95]
+                        tracking-[-0.055em]
+                        text-white
+                        sm:text-5xl
+                        md:text-7xl
+                    "
+                >
+                    Technology
+
+                    <span class="text-white/30">
+                        for your world.
+                    </span>
+                </h2>
+
+            </div>
+
+
+            <p
+                class="
+                    max-w-sm
+                    text-sm
+                    leading-7
+                    text-white/35
+                "
+            >
+                Curated hardware designed to fit naturally
+                into the way you live, work and move.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PRODUCT GRID
+        ================================================== -->
+
+        <div
+            class="
+                grid
+                grid-cols-1
+                gap-5
+                sm:grid-cols-2
+                xl:grid-cols-3
+                xl:gap-7
+            "
+        >
+
+
+            {% for product in products %}
+
+            <article
+                class="
+                    product-card
+                    group
+                    overflow-hidden
+                    rounded-[26px]
+                    border
+                    border-white/[0.08]
+                    bg-[#0b0b0b]
+                    transition-all
+                    duration-700
+                    hover:-translate-y-2
+                    hover:border-white/[0.16]
+                "
+            >
+
+
+                <!-- PRODUCT IMAGE -->
+
+                <div
+                    class="
+                        product-image
+                        relative
+                        aspect-[1/1.05]
+                        overflow-hidden
+                        bg-[#090909]
+                    "
+                >
+
+                    <img
+                        src="{{ product.images[0].image_url if product.images else 'https://via.placeholder.com/800x800/090909/ffffff?text=AZIZI+%26+CO' }}"
+                        alt="{{ product.name }}"
+                        class="
+                            h-full
+                            w-full
+                            object-cover
+                            transition
+                            duration-[1200ms]
+                            ease-out
+                            group-hover:scale-[1.055]
+                        "
+                    >
+
+
+                    <!-- OVERLAY -->
+
+                    <div
+                        class="
+                            pointer-events-none
+                            absolute
+                            inset-0
+                            bg-gradient-to-t
+                            from-black/55
+                            via-transparent
+                            to-white/[0.03]
+                        "
+                    ></div>
+
+
+                    <!-- BRAND PILL -->
+
+                    <div
+                        class="
+                            absolute
+                            left-5
+                            top-5
+                        "
+                    >
+
+                        <span
+                            class="
+                                rounded-full
+                                border
+                                border-white/10
+                                bg-black/30
+                                px-3
+                                py-1.5
+                                text-[8px]
+                                font-semibold
+                                uppercase
+                                tracking-[0.2em]
+                                text-white/60
+                                backdrop-blur-md
+                            "
+                        >
+                            AZIZI & CO
+                        </span>
+
+                    </div>
+
+
+                    <!-- HOVER ACTION -->
+
+                    <div
+                        class="
+                            absolute
+                            bottom-5
+                            right-5
+                            flex
+                            h-11
+                            w-11
+                            translate-y-3
+                            items-center
+                            justify-center
+                            rounded-full
+                            bg-white
+                            text-black
+                            opacity-0
+                            transition-all
+                            duration-500
+                            group-hover:translate-y-0
+                            group-hover:opacity-100
+                        "
+                    >
+                        <span class="text-lg">
+                            ↗
+                        </span>
+                    </div>
+
+                </div>
+
+
+
+                <!-- PRODUCT INFORMATION -->
+
+                <div class="p-6 sm:p-7">
+
+
+                    <div
+                        class="
+                            flex
+                            items-start
+                            justify-between
+                            gap-5
+                        "
+                    >
+
+                        <div class="min-w-0">
+
+                            <h3
+                                class="
+                                    truncate
+                                    text-lg
+                                    font-semibold
+                                    tracking-[-0.025em]
+                                    text-white
+                                "
+                            >
+                                {{ product.name }}
+                            </h3>
+
+
+                            <p
+                                class="
+                                    mt-2
+                                    text-[10px]
+                                    uppercase
+                                    tracking-[0.2em]
+                                    text-white/25
+                                "
+                            >
+                                Engineered technology
+                            </p>
+
+                        </div>
+
+
+                        <span
+                            class="
+                                shrink-0
+                                text-sm
+                                font-semibold
+                                text-[#d9b28d]
+                            "
+                        >
+                            ${{ "%.2f"|format(product.price) }}
+                        </span>
+
+                    </div>
+
+
+                    <p
+                        class="
+                            mt-5
+                            line-clamp-2
+                            text-sm
+                            leading-6
+                            text-white/35
+                        "
+                    >
+                        {{ product.description }}
+                    </p>
+
+
+                    <a
+                        href="{{ url_for('shop.product_detail', slug=product.slug) }}"
+                        class="
+                            mt-7
+                            flex
+                            items-center
+                            justify-between
+                            border-t
+                            border-white/[0.07]
+                            pt-5
+                            text-[9px]
+                            font-semibold
+                            uppercase
+                            tracking-[0.22em]
+                            text-white/45
+                            transition-colors
+                            duration-300
+                            group-hover:text-white
+                        "
+                    >
+
+                        <span>
+                            View product
+                        </span>
+
+                        <span class="text-sm">
+                            ↗
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PAGE STYLES
+========================================================= -->
+
+<style>
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+#azizi-showroom {
+
+    isolation: isolate;
+
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.showroom-bg {
+
+    background:
+
+        radial-gradient(
+            ellipse 52% 48% at 50% 44%,
+            rgba(178,122,78,.16),
+            transparent 62%
+        ),
+
+        radial-gradient(
+            ellipse 35% 45% at 18% 68%,
+            rgba(112,78,52,.10),
+            transparent 70%
+        ),
+
+        radial-gradient(
+            ellipse 30% 35% at 85% 25%,
+            rgba(255,255,255,.045),
+            transparent 72%
+        ),
+
+        linear-gradient(
+            180deg,
+            #030303 0%,
+            #0b0908 48%,
+            #050505 100%
+        );
+
+}
+
+
+/* =========================================================
+   NOISE
+========================================================= */
+
+.showroom-noise {
+
+    opacity: .045;
+
+    background-image:
+
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+
+    mix-blend-mode:
+        screen;
+
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+.showroom-heading {
+
+    font-size:
+        clamp(4.2rem, 10vw, 10rem);
+
+    line-height:
+        .82;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        -.075em;
+
+    color:
+        #f4f1eb;
+
+    text-shadow:
+        0 20px 70px rgba(0,0,0,.55);
+
+}
+
+
+.showroom-section-title {
+
+    font-size:
+        clamp(3rem, 7vw, 7rem);
+
+    line-height:
+        .9;
+
+    letter-spacing:
+        -.065em;
+
+    font-weight:
+        800;
+
+}
+
+
+.showroom-section-title span {
+
+    color:
+        rgba(255,255,255,.28);
+
+}
+
+
+.showroom-final-title {
+
+    font-size:
+        clamp(4rem, 9vw, 9rem);
+
+    line-height:
+        .82;
+
+    letter-spacing:
+        -.075em;
+
+    font-weight:
+        900;
+
+}
+
+
+.showroom-final-title span {
+
+    color:
+        rgba(255,255,255,.28);
+
+}
+
+
+/* =========================================================
+   PANEL CONTAINER
+========================================================= */
+
+#showroom-panels {
+
+    perspective:
+        1600px;
+
+    transform-style:
+        preserve-3d;
+
+    will-change:
+        transform;
+
+}
+
+
+/* =========================================================
+   PANELS
+========================================================= */
+
+.showroom-panel {
+
+    flex:
+        0 0 auto;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid rgba(255,255,255,.13);
+
+    border-radius:
+        24px;
+
+    background:
+        #090909;
+
+    box-shadow:
+
+        0 50px 120px rgba(0,0,0,.72),
+
+        0 18px 45px rgba(0,0,0,.45),
+
+        inset 0 1px 0 rgba(255,255,255,.06);
+
+    transform-style:
+        preserve-3d;
+
+    will-change:
+        transform,
+        opacity;
+
+}
+
+
+.panel-left,
+.panel-right {
+
+    width:
+        370px;
+
+    height:
+        455px;
+
+}
+
+
+.panel-center {
+
+    width:
+        540px;
+
+    height:
+        540px;
+
+    z-index:
+        3;
+
+}
+
+
+/* =========================================================
+   BROWSER BAR
+========================================================= */
+
+.browser-bar {
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    right:
+        0;
+
+    top:
+        0;
+
+    height:
+        30px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        5px;
+
+    padding:
+        0 12px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.07);
+
+    background:
+        rgba(12,12,12,.94);
+
+    z-index:
+        10;
+
+}
+
+
+.browser-bar > span {
+
+    width:
+        5px;
+
+    height:
+        5px;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255,255,255,.28);
+
+}
+
+
+.browser-url {
+
+    margin-left:
+        8px;
+
+    color:
+        rgba(255,255,255,.18);
+
+    font-size:
+        6px;
+
+    letter-spacing:
+        .05em;
+
+}
+
+
+/* =========================================================
+   PANEL CONTENT
+========================================================= */
+
+.panel-content {
+
+    position:
+        absolute;
+
+    inset:
+        30px 0 0;
+
+    overflow:
+        hidden;
+
+}
+
+
+/* =========================================================
+   MINI NAV
+========================================================= */
+
+.panel-mini-nav {
+
+    position:
+        absolute;
+
+    left:
+        22px;
+
+    right:
+        22px;
+
+    top:
+        20px;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    z-index:
+        4;
+
+    color:
+        rgba(255,255,255,.72);
+
+}
+
+
+.panel-mini-nav b {
+
+    font-size:
+        7px;
+
+    letter-spacing:
+        .25em;
+
+}
+
+
+.panel-mini-nav small {
+
+    font-size:
+        6px;
+
+    color:
+        rgba(255,255,255,.35);
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .18em;
+
+}
+
+
+/* =========================================================
+   AUDIO
+========================================================= */
+
+.panel-audio {
+
+    background:
+
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(255,255,255,.09),
+            transparent 36%
+        ),
+
+        linear-gradient(
+            140deg,
+            #030303,
+            #111 60%,
+            #020202
+        );
+
+}
+
+
+.panel-copy {
+
+    position:
+        absolute;
+
+    left:
+        28px;
+
+    top:
+        105px;
+
+    z-index:
+        3;
+
+}
+
+
+.panel-copy small,
+.feature-copy small,
+.wearable-copy small {
+
+    font-size:
+        6px;
+
+    letter-spacing:
+        .32em;
+
+    color:
+        rgba(255,255,255,.4);
+
+}
+
+
+.panel-copy h3 {
+
+    margin-top:
+        9px;
+
+    font-size:
+        47px;
+
+    line-height:
+        .8;
+
+    letter-spacing:
+        -.07em;
+
+    font-weight:
+        800;
+
+}
+
+
+.panel-copy p {
+
+    margin-top:
+        12px;
+
+    color:
+        rgba(255,255,255,.38);
+
+    font-size:
+        8px;
+
+}
+
+
+/* =========================================================
+   HEADPHONES
+========================================================= */
+
+.fake-headphones {
+
+    position:
+        absolute;
+
+    right:
+        8px;
+
+    bottom:
+        55px;
+
+    width:
+        255px;
+
+    height:
+        225px;
+
+    transform:
+        rotate(-8deg);
+
+}
+
+
+.cup {
+
+    position:
+        absolute;
+
+    bottom:
+        8px;
+
+    width:
+        80px;
+
+    height:
+        118px;
+
+    border-radius:
+        42% 42% 35% 35%;
+
+    background:
+
+        radial-gradient(
+            circle at 30% 25%,
+            #454545,
+            #101010 45%,
+            #010101 75%
+        );
+
+    box-shadow:
+
+        inset
+        8px
+        8px
+        18px
+        rgba(255,255,255,.12),
+
+        0 20px 35px rgba(0,0,0,.8);
+
+}
+
+
+.cup-left {
+    left:
+        23px;
+}
+
+
+.cup-right {
+    right:
+        23px;
+}
+
+
+.headband {
+
+    position:
+        absolute;
+
+    left:
+        55px;
+
+    top:
+        2px;
+
+    width:
+        145px;
+
+    height:
+        145px;
+
+    border:
+        13px solid #151515;
+
+    border-bottom-color:
+        transparent;
+
+    border-radius:
+        50%;
+
+    box-shadow:
+        0 -4px 15px rgba(255,255,255,.05);
+
+}
+
+
+/* =========================================================
+   CENTER FEATURE
+========================================================= */
+
+.panel-feature {
+
+    background:
+
+        radial-gradient(
+            circle at 72% 45%,
+            rgba(215,154,105,.34),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 55% 75%,
+            rgba(112,65,38,.22),
+            transparent 32%
+        ),
+
+        linear-gradient(
+            135deg,
+            #17120f 0%,
+            #302017 48%,
+            #090706 100%
+        );
+
+}
+
+
+.panel-feature::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background:
+
+        linear-gradient(
+            115deg,
+            transparent 35%,
+            rgba(255,255,255,.045) 50%,
+            transparent 65%
+        );
+
+    pointer-events:
+        none;
+
+}
+
+
+.feature-copy {
+
+    position:
+        absolute;
+
+    left:
+        32px;
+
+    top:
+        88px;
+
+    z-index:
+        4;
+
+}
+
+
+.feature-copy h3 {
+
+    margin-top:
+        10px;
+
+    font-size:
+        34px;
+
+    line-height:
+        .93;
+
+    letter-spacing:
+        -.055em;
+
+    font-weight:
+        700;
+
+}
+
+
+.feature-product {
+
+    position:
+        absolute;
+
+    right:
+        24px;
+
+    bottom:
+        55px;
+
+    width:
+        250px;
+
+    height:
+        270px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    z-index:
+        3;
+
+}
+
+
+.feature-product img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        contain;
+
+    filter:
+        drop-shadow(
+            0 30px 30px rgba(0,0,0,.7)
+        );
+
+}
+
+
+.abstract-product {
+
+    width:
+        125px;
+
+    height:
+        190px;
+
+    border-radius:
+        48% 48% 35% 35%;
+
+    background:
+
+        linear-gradient(
+            120deg,
+            #d7a17c,
+            #74472f 48%,
+            #18100c
+        );
+
+    transform:
+        rotate(16deg);
+
+    box-shadow:
+
+        0 35px 60px rgba(0,0,0,.7),
+
+        inset
+        12px
+        8px
+        25px
+        rgba(255,255,255,.18);
+
+}
+
+
+.feature-pill {
+
+    position:
+        absolute;
+
+    left:
+        30px;
+
+    right:
+        30px;
+
+    bottom:
+        21px;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    padding:
+        10px 13px;
+
+    border:
+        1px solid rgba(255,255,255,.13);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(0,0,0,.2);
+
+    backdrop-filter:
+        blur(8px);
+
+    font-size:
+        7px;
+
+    color:
+        rgba(255,255,255,.58);
+
+}
+
+
+/* =========================================================
+   WEARABLE
+========================================================= */
+
+.panel-wearable {
+
+    background:
+
+        radial-gradient(
+            circle at 70% 52%,
+            rgba(215,170,125,.25),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            140deg,
+            #151515,
+            #29231f 55%,
+            #080808
+        );
+
+}
+
+
+.wearable-copy {
+
+    position:
+        absolute;
+
+    left:
+        25px;
+
+    top:
+        96px;
+
+    z-index:
+        3;
+
+}
+
+
+.wearable-copy h3 {
+
+    margin-top:
+        10px;
+
+    font-size:
+        31px;
+
+    line-height:
+        .92;
+
+    letter-spacing:
+        -.06em;
+
+    font-weight:
+        700;
+
+}
+
+
+/* =========================================================
+   WATCH
+========================================================= */
+
+.fake-watch {
+
+    position:
+        absolute;
+
+    right:
+        18px;
+
+    bottom:
+        47px;
+
+    width:
+        150px;
+
+    height:
+        245px;
+
+    transform:
+        rotate(17deg);
+
+}
+
+
+.watch-band {
+
+    position:
+        absolute;
+
+    left:
+        42px;
+
+    top:
+        0;
+
+    width:
+        62px;
+
+    height:
+        240px;
+
+    border-radius:
+        30px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #090909,
+            #555,
+            #111
+        );
+
+}
+
+
+.watch-face {
+
+    position:
+        absolute;
+
+    left:
+        8px;
+
+    top:
+        76px;
+
+    width:
+        132px;
+
+    height:
+        110px;
+
+    border-radius:
+        32px;
+
+    border:
+        5px solid #080808;
+
+    background:
+
+        radial-gradient(
+            circle at 30% 20%,
+            #6d625a,
+            #151313 50%,
+            #020202
+        );
+
+    box-shadow:
+        0 25px 45px rgba(0,0,0,.8);
+
+    z-index:
+        2;
+
+}
+
+
+.watch-time {
+
+    padding-top:
+        33px;
+
+    text-align:
+        center;
+
+    font-size:
+        23px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        -.06em;
+
+}
+
+
+.watch-ring {
+
+    position:
+        absolute;
+
+    right:
+        12px;
+
+    top:
+        12px;
+
+    width:
+        10px;
+
+    height:
+        10px;
+
+    border:
+        1px solid rgba(255,255,255,.7);
+
+    border-radius:
+        50%;
+
+}
+
+
+/* =========================================================
+   PANEL BOTTOM
+========================================================= */
+
+.panel-bottom {
+
+    position:
+        absolute;
+
+    left:
+        24px;
+
+    right:
+        24px;
+
+    bottom:
+        19px;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    padding-top:
+        13px;
+
+    border-top:
+        1px solid rgba(255,255,255,.08);
+
+    color:
+        rgba(255,255,255,.45);
+
+    font-size:
+        7px;
+
+    letter-spacing:
+        .15em;
+
+}
+
+
+/* =========================================================
+   FLOATING CHIPS
+========================================================= */
+
+.floating-chip {
+
+    position:
+        absolute;
+
+    z-index:
+        35;
+
+    padding:
+        9px 12px;
+
+    border:
+        1px solid rgba(255,255,255,.1);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(10,10,10,.55);
+
+    backdrop-filter:
+        blur(12px);
+
+    color:
+        rgba(255,255,255,.45);
+
+    font-size:
+        7px;
+
+    letter-spacing:
+        .08em;
+
+    opacity:
+        0;
+
+    white-space:
+        nowrap;
+
+}
+
+
+#floating-chip-1 {
+
+    left:
+        9%;
+
+    top:
+        31%;
+
+}
+
+
+#floating-chip-2 {
+
+    right:
+        9%;
+
+    top:
+        67%;
+
+}
+
+
+.chip-dot {
+
+    display:
+        inline-block;
+
+    width:
+        4px;
+
+    height:
+        4px;
+
+    margin-right:
+        6px;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255,255,255,.7);
+
+}
+
+
+/* =========================================================
+   PRODUCT CARDS
+========================================================= */
+
+.product-card {
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.25);
+
+}
+
+
+.product-card:hover {
+
+    box-shadow:
+        0 35px 100px rgba(0,0,0,.42);
+
+}
+
+
+.product-image {
+
+    isolation:
+        isolate;
+
+}
+
+
+.product-image::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(255,255,255,.055),
+            transparent 48%
+        );
+
+    pointer-events:
+        none;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    #showroom-panels {
+
+        width:
+            760px;
+
+        gap:
+            14px;
+
+        top:
+            57%;
+
+    }
+
+
+    .panel-left,
+    .panel-right {
+
+        width:
+            255px;
+
+        height:
+            320px;
+
+        border-radius:
+            17px;
+
+    }
+
+
+    .panel-center {
+
+        width:
+            350px;
+
+        height:
+            380px;
+
+        border-radius:
+            17px;
+
+    }
+
+
+    .showroom-heading {
+
+        font-size:
+            clamp(4rem, 18vw, 7rem);
+
+    }
+
+
+    .showroom-section-title {
+
+        font-size:
+            clamp(2.8rem, 12vw, 5rem);
+
+    }
+
+
+    .feature-copy h3 {
+
+        font-size:
+            22px;
+
+    }
+
+
+    .wearable-copy h3 {
+
+        font-size:
+            22px;
+
+    }
+
+
+    .panel-copy h3 {
+
+        font-size:
+            30px;
+
+    }
+
+
+    .fake-headphones {
+
+        transform:
+            scale(.72)
+            rotate(-8deg);
+
+        transform-origin:
+            bottom right;
+
+    }
+
+
+    .fake-watch {
+
+        transform:
+            scale(.72)
+            rotate(17deg);
+
+        transform-origin:
+            bottom right;
+
+    }
+
+
+    .feature-product {
+
+        right:
+            0;
+
+        transform:
+            scale(.72);
+
+        transform-origin:
+            bottom right;
+
+    }
+
+
+    #floating-chip-1,
+    #floating-chip-2 {
+
+        display:
+            none;
+
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    #showroom-panels {
+
+        width:
+            680px;
+
+    }
+
+
+    .panel-left,
+    .panel-right {
+
+        width:
+            220px;
+
+        height:
+            285px;
+
+    }
+
+
+    .panel-center {
+
+        width:
+            300px;
+
+        height:
+            330px;
+
+    }
+
+
+    .showroom-heading {
+
+        font-size:
+            4rem;
+
+    }
+
+}
+
+</style>
+
+
+
+<!-- =========================================================
+     HERO ANIMATION
+========================================================= -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+
+        if (
+            typeof gsap === "undefined" ||
+            typeof ScrollTrigger === "undefined"
+        ) {
+            return;
+        }
+
+
+        gsap.registerPlugin(
+            ScrollTrigger
+        );
+
+
+        const showroom =
+            document.getElementById(
+                "azizi-showroom"
+            );
+
+
+        if (!showroom) {
+            return;
+        }
+
+
+        const panels =
+            document.getElementById(
+                "showroom-panels"
+            );
+
+
+        const left =
+            document.getElementById(
+                "panel-left"
+            );
+
+
+        const center =
+            document.getElementById(
+                "panel-center"
+            );
+
+
+        const right =
+            document.getElementById(
+                "panel-right"
+            );
+
+
+        const light =
+            document.getElementById(
+                "light-sweep"
+            );
+
+
+        const intro =
+            document.getElementById(
+                "copy-intro"
+            );
+
+
+        const audio =
+            document.getElementById(
+                "copy-audio"
+            );
+
+
+        const wearables =
+            document.getElementById(
+                "copy-wearables"
+            );
+
+
+        const accessories =
+            document.getElementById(
+                "copy-accessories"
+            );
+
+
+        const finalCopy =
+            document.getElementById(
+                "copy-final"
+            );
+
+
+        const chip1 =
+            document.getElementById(
+                "floating-chip-1"
+            );
+
+
+        const chip2 =
+            document.getElementById(
+                "floating-chip-2"
+            );
+
+
+        const prompt =
+            document.getElementById(
+                "scroll-prompt"
+            );
+
+
+        const line =
+            document.getElementById(
+                "scroll-line"
+            );
+
+
+        const percent =
+            document.getElementById(
+                "scroll-percent"
+            );
+
+
+        /* =================================================
+           INITIAL COMPOSITION
+        ================================================== */
+
+        gsap.set(
+            left,
+            {
+                x: -70,
+                y: 12,
+                z: -140,
+
+                rotateY: 17,
+                rotateZ: -1.5,
+
+                scale: .84,
+
+                opacity: .7
+            }
+        );
+
+
+        gsap.set(
+            center,
+            {
+                x: 0,
+                y: 0,
+                z: 100,
+
+                rotateY: 0,
+                rotateZ: 0,
+
+                scale: 1
+            }
+        );
+
+
+        gsap.set(
+            right,
+            {
+                x: 70,
+                y: 12,
+                z: -140,
+
+                rotateY: -17,
+                rotateZ: 1.5,
+
+                scale: .84,
+
+                opacity: .7
+            }
+        );
+
+
+        /* =================================================
+           TIMELINE
+        ================================================== */
+
+        const timeline =
+            gsap.timeline({
+
+                scrollTrigger: {
+
+                    trigger:
+                        showroom,
+
+                    start:
+                        "top top",
+
+                    end:
+                        "bottom bottom",
+
+                    scrub:
+                        1.15,
+
+                    invalidateOnRefresh:
+                        true,
+
+
+                    onUpdate:
+                        (self) => {
+
+                            if (!percent) {
+                                return;
+                            }
+
+
+                            percent.textContent =
+                                Math.round(
+                                    self.progress * 100
+                                )
+                                .toString()
+                                .padStart(
+                                    2,
+                                    "0"
+                                );
+
+                        }
+
+                }
+
+            });
+
+
+        /* =================================================
+           INTRO
+        ================================================== */
+
+        timeline.to(
+            intro,
+            {
+                opacity: 0,
+
+                y: -110,
+
+                scale: .78,
+
+                filter:
+                    "blur(14px)",
+
+                duration: .13,
+
+                ease:
+                    "power3.in"
+            },
+            .06
+        );
+
+
+        timeline.to(
+            panels,
+            {
+                scale: 1.08,
+
+                y: -18,
+
+                duration: .18,
+
+                ease:
+                    "power2.out"
+            },
+            .07
+        );
+
+
+        timeline.to(
+            light,
+            {
+                x:
+                    "135vw",
+
+                duration:
+                    .32,
+
+                ease:
+                    "none"
+            },
+            .03
+        );
+
+
+        timeline.to(
+            chip1,
+            {
+                opacity:
+                    1,
+
+                y:
+                    -20,
+
+                duration:
+                    .08
+            },
+            .14
+        );
+
+
+        /* =================================================
+           AUDIO
+        ================================================== */
+
+        timeline.to(
+            left,
+            {
+                x: 170,
+
+                y: -8,
+
+                z: 280,
+
+                rotateY: 0,
+
+                rotateZ: 0,
+
+                scale: 1.22,
+
+                opacity: 1,
+
+                duration: .16,
+
+                ease:
+                    "power2.inOut"
+            },
+            .20
+        );
+
+
+        timeline.to(
+            center,
+            {
+                x: 145,
+
+                y: 5,
+
+                z: -170,
+
+                rotateY: -18,
+
+                rotateZ: 1,
+
+                scale: .77,
+
+                opacity: .5,
+
+                duration: .16
+            },
+            .20
+        );
+
+
+        timeline.to(
+            right,
+            {
+                x: 230,
+
+                y: 15,
+
+                z: -320,
+
+                rotateY: -28,
+
+                scale: .66,
+
+                opacity: .3,
+
+                duration: .16
+            },
+            .20
+        );
+
+
+        timeline.fromTo(
+            audio,
+
+            {
+                opacity: 0,
+
+                y: 90,
+
+                filter:
+                    "blur(12px)"
+            },
+
+            {
+                opacity: 1,
+
+                y: 0,
+
+                filter:
+                    "blur(0px)",
+
+                duration: .10
+            },
+
+            .24
+        );
+
+
+        timeline.to(
+            audio,
+            {
+                opacity: 0,
+
+                y: -90,
+
+                filter:
+                    "blur(10px)",
+
+                duration: .09
+            },
+            .36
+        );
+
+
+        /* =================================================
+           CENTER RESET
+        ================================================== */
+
+        timeline.to(
+            [left, center, right],
+            {
+                x: 0,
+
+                y: 0,
+
+                z: 0,
+
+                rotateY: 0,
+
+                rotateZ: 0,
+
+                scale: 1,
+
+                opacity: 1,
+
+                duration: .16,
+
+                ease:
+                    "power3.inOut"
+            },
+            .40
+        );
+
+
+        timeline.to(
+            panels,
+            {
+                scale: .93,
+
+                duration: .12
+            },
+            .40
+        );
+
+
+        /* =================================================
+           WEARABLES
+        ================================================== */
+
+        timeline.to(
+            right,
+            {
+                x: -170,
+
+                y: -5,
+
+                z: 280,
+
+                rotateY: 0,
+
+                rotateZ: 0,
+
+                scale: 1.22,
+
+                opacity: 1,
+
+                duration: .16,
+
+                ease:
+                    "power2.inOut"
+            },
+            .48
+        );
+
+
+        timeline.to(
+            center,
+            {
+                x: -145,
+
+                z: -170,
+
+                rotateY: 18,
+
+                scale: .77,
+
+                opacity: .5,
+
+                duration: .16
+            },
+            .48
+        );
+
+
+        timeline.to(
+            left,
+            {
+                x: -230,
+
+                z: -320,
+
+                rotateY: 28,
+
+                scale: .66,
+
+                opacity: .3,
+
+                duration: .16
+            },
+            .48
+        );
+
+
+        timeline.fromTo(
+            wearables,
+
+            {
+                opacity: 0,
+
+                y: 90,
+
+                filter:
+                    "blur(12px)"
+            },
+
+            {
+                opacity: 1,
+
+                y: 0,
+
+                filter:
+                    "blur(0px)",
+
+                duration: .10
+            },
+
+            .52
+        );
+
+
+        timeline.to(
+            wearables,
+            {
+                opacity: 0,
+
+                y: -90,
+
+                filter:
+                    "blur(10px)",
+
+                duration: .09
+            },
+            .64
+        );
+
+
+        /* =================================================
+           ACCESSORIES
+        ================================================== */
+
+        timeline.to(
+            [left, center, right],
+            {
+                x: 0,
+
+                y: 0,
+
+                z: 0,
+
+                rotateY: 0,
+
+                rotateZ: 0,
+
+                scale: 1,
+
+                opacity: 1,
+
+                duration: .16,
+
+                ease:
+                    "power3.inOut"
+            },
+            .68
+        );
+
+
+        timeline.to(
+            panels,
+            {
+                scale: 1.08,
+
+                duration: .12
+            },
+            .68
+        );
+
+
+        timeline.fromTo(
+            accessories,
+
+            {
+                opacity: 0,
+
+                y: 90,
+
+                filter:
+                    "blur(12px)"
+            },
+
+            {
+                opacity: 1,
+
+                y: 0,
+
+                filter:
+                    "blur(0px)",
+
+                duration: .10
+            },
+
+            .72
+        );
+
+
+        timeline.to(
+            accessories,
+            {
+                opacity: 0,
+
+                y: -90,
+
+                filter:
+                    "blur(10px)",
+
+                duration: .09
+            },
+            .83
+        );
+
+
+        /* =================================================
+           FINAL
+        ================================================== */
+
+        timeline.to(
+            panels,
+            {
+                y: 65,
+
+                scale: .72,
+
+                opacity: .16,
+
+                duration: .14,
+
+                ease:
+                    "power3.in"
+            },
+            .84
+        );
+
+
+        timeline.to(
+            chip1,
+            {
+                opacity: 0,
+
+                duration: .05
+            },
+            .84
+        );
+
+
+        timeline.to(
+            chip2,
+            {
+                opacity: 1,
+
+                y: -25,
+
+                duration: .08
+            },
+            .85
+        );
+
+
+        timeline.fromTo(
+            finalCopy,
+
+            {
+                opacity: 0,
+
+                y: 110,
+
+                scale: .88,
+
+                filter:
+                    "blur(14px)"
+            },
+
+            {
+                opacity: 1,
+
+                y: 0,
+
+                scale: 1,
+
+                filter:
+                    "blur(0px)",
+
+                duration: .15,
+
+                ease:
+                    "power3.out"
+            },
+
+            .87
+        );
+
+
+        /* =================================================
+           SCROLL UI
+        ================================================== */
+
+        timeline.to(
+            prompt,
+            {
+                opacity: 0,
+
+                y: 20,
+
+                duration: .06
+            },
+            .10
+        );
+
+
+        timeline.to(
+            line,
+            {
+                scaleY: 1,
+
+                duration: .9,
+
+                ease:
+                    "none"
+            },
+            0
+        );
+
+
+        /* =================================================
+           REFRESH AFTER IMAGES LOAD
+        ================================================== */
+
+        window.addEventListener(
+            "load",
+            () => {
+
+                setTimeout(
+                    () => {
+
+                        ScrollTrigger.refresh();
+
+                    },
+                    400
+                );
+
+            },
+            {
+                once: true
+            }
+        );
+
+
+    }
+);
+
+</script>
+
+
+{% endblock %}

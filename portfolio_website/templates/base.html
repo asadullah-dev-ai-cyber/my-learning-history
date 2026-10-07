@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Asadullah Azizi | Full-Stack & AI Software Engineer{% endblock %}</title>
+
+    <!-- Tailwind CSS Engine -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#111111',
+                        cardDark: '#1a1a1a',
+                        borderDark: '#2a2a2a',
+                        brandOrange: {
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-brandDark text-slate-100 font-sans antialiased selection:bg-brandOrange-600 selection:text-white flex flex-col min-h-screen">
+
+<!-- 🌐 NAVIGATION BAR -->
+<header class="sticky top-0 z-50 backdrop-blur-md bg-brandDark/90 border-b border-borderDark">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between w-full">
+        <a href="{{ url_for('home') }}" class="text-xl font-black tracking-tight text-white flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-brandOrange-600"></span>
+            ASADULLAH AZIZI
+        </a>
+
+        <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-300">
+            <a href="#about" class="hover:text-brandOrange-500 transition-colors">About</a>
+            <a href="#skills" class="hover:text-brandOrange-500 transition-colors">Skills</a>
+            <a href="#projects" class="hover:text-brandOrange-500 transition-colors">Projects</a>
+            <a href="#education" class="hover:text-brandOrange-500 transition-colors">Education</a>
+            <a href="#contact" class="hover:text-brandOrange-500 transition-colors">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-4">
+            <!-- Primary CTA Pill Button -->
+            <a href="{{ url_for('static', filename='uploads/cvazizi.pdf') }}" download
+               class="px-6 py-2.5 text-sm font-bold rounded-full bg-brandOrange-600 text-white hover:bg-brandOrange-500 transition-all shadow-lg shadow-brandOrange-600/25 flex items-center gap-2">
+                <i class="fa-solid fa-download"></i> Download CV
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- 🔔 FLASH NOTIFICATIONS -->
+<div class="max-w-6xl mx-auto px-4 mt-4 w-full">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="p-4 rounded-xl text-sm font-semibold {% if category == 'success' %}bg-emerald-950/80 text-emerald-300 border border-emerald-800{% else %}bg-rose-950/80 text-rose-300 border border-rose-800{% endif %} flex justify-between items-center shadow-lg">
+        <span>{{ message }}</span>
+        <button onclick="this.parentElement.remove()" class="text-slate-400 hover:text-white">&times;</button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+</div>
+
+<!-- 📄 DYNAMIC PAGE CONTENT BLOCK -->
+<main class="flex-grow">
+    {% block content %}{% endblock %}
+</main>
+
+<!-- Footer -->
+<footer class="border-t border-brandOrange-500/30 bg-brandDark py-10 mt-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center gap-4">
+
+        <!-- Centered Copyright Text (Entirely Orange) -->
+        <p class="text-base font-bold text-brandOrange-500 flex items-center justify-center gap-2 tracking-wide">
+            <span class="h-2 w-2 rounded-full bg-brandOrange-500"></span>
+            © 2026 Asadullah Azizi
+        </p>
+
+        <!-- Social Media Icons (Positioned Directly Below) -->
+        <div class="flex items-center justify-center gap-6 text-brandOrange-500 text-xl">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" title="LinkedIn">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/asadullah-azizi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" title="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" title="Facebook">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" title="Twitter / X">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" title="TikTok">
+                <i class="fa-brands fa-tiktok"></i>
+            </a>
+        </div>
+
+    </div>
+</footer>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

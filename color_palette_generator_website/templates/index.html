@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChromaExtract // AI Color Palette Generator</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Background Grid & Glow Effects -->
+    <div class="bg-glow"></div>
+
+    <main class="container">
+        <!-- Header -->
+        <header class="hero-header">
+            <div class="badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Image Intelligence</div>
+            <h1>Chroma<span class="gradient-text">Extract</span></h1>
+            <p>Upload any image to extract its top 10 dominant color hex codes in real-time.</p>
+        </header>
+
+        <!-- Form Section -->
+        <section class="upload-section">
+            <form action="/" method="POST" enctype="multipart/form-data" class="upload-form">
+                <label for="file-upload" class="dropzone" id="dropzone">
+                    <div class="dropzone-content">
+                        <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                        <span class="dropzone-title">Choose an image or drag & drop</span>
+                        <span class="dropzone-subtitle">Supports JPG, PNG, WEBP</span>
+                        <span class="file-name" id="file-name-display">No file selected</span>
+                    </div>
+                    <input id="file-upload" type="file" name="file" accept="image/*" required onchange="updateFileName(this)">
+                </label>
+
+                <button type="submit" class="btn-submit">
+                    <span>Extract Palette</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+        </section>
+
+        <!-- Results Section (Rendered when colors exist) -->
+        {% if colors %}
+        <section class="results-section" id="results">
+            <!-- Left Panel: Uploaded Image Preview -->
+            <div class="card preview-card">
+                <h3><i class="fa-regular fa-image"></i> Source Image</h3>
+                <div class="image-wrapper">
+                    <img src="{{ image_url }}" alt="Uploaded Source Image">
+                </div>
+            </div>
+
+            <!-- Right Panel: Generated Swatches Grid -->
+            <div class="card palette-card">
+                <h3><i class="fa-solid fa-palette"></i> Top 10 Dominant Colors</h3>
+                <p class="sub-text">Click any color card to copy the hex code to your clipboard.</p>
+
+                <div class="color-grid">
+                    {% for hex in colors %}
+                    <div class="color-swatch-card" style="--swatch-color: {{ hex }};" onclick="copyHex('{{ hex }}', this)">
+                        <div class="swatch-preview"></div>
+                        <div class="swatch-info">
+                            <span class="hex-value">{{ hex }}</span>
+                            <i class="fa-regular fa-copy copy-icon"></i>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        {% endif %}
+    </main>
+
+    <!-- Toast Notification for Copying Hex Code -->
+    <div id="toast" class="toast">
+        <i class="fa-solid fa-check-circle"></i> Copied <span id="toast-hex">#ffffff</span> to clipboard!
+    </div>
+
+    <!-- JavaScript Handling UI Interactivity -->
+    <script>
+        // Update file name text on select
+        function updateFileName(input) {
+            const fileNameDisplay = document.getElementById('file-name-display');
+            if (input.files && input.files[0]) {
+                fileNameDisplay.textContent = input.files[0].name;
+                fileNameDisplay.classList.add('selected');
+            }
+        }
+
+        // Copy Hex string to clipboard with interactive toast notification
+        function copyHex(hex, element) {
+            navigator.clipboard.writeText(hex).then(() => {
+                const toast = document.getElementById('toast');
+                const toastHex = document.getElementById('toast-hex');
+
+                toastHex.textContent = hex;
+                toast.classList.add('show');
+
+                // Visual feedback on card
+                element.classList.add('copied');
+                setTimeout(() => element.classList.remove('copied'), 1000);
+
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2500);
+            });
+        }
+    </script>
+</body>
+</html>

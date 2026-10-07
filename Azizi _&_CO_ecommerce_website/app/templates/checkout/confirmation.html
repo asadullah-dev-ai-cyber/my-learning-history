@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Order Confirmed | AZIZI & CO{% endblock %}
+{% block namespace %}checkout_confirmation{% endblock %}
+
+{% block content %}
+<div class="flex min-h-[70vh] items-center justify-center px-5 py-12">
+    <div class="w-full max-w-lg rounded-3xl border border-white/10 bg-white/[0.02] p-10 text-center backdrop-blur-md">
+
+        <div class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-[#dfbb96]/30 bg-[#dfbb96]/10 text-[#dfbb96]">
+            <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+        </div>
+
+        <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-[#dfbb96]">Order Completed</span>
+        <h1 class="mt-3 text-3xl font-extrabold text-white">Order Confirmed</h1>
+
+        {% if order %}
+            <p class="mt-2 text-xs font-bold text-[#dfbb96]">Order Reference: #{{ order.id }}</p>
+        {% endif %}
+
+        <p class="mt-4 text-xs leading-relaxed text-neutral-400">
+            Thank you for your purchase. Your hardware is being prepared for dispatch. A confirmation receipt has been sent to your email.
+        </p>
+
+        <div class="mt-10 flex flex-col gap-4 justify-center sm:flex-row">
+            <a href="{{ url_for('auth.profile') }}" class="rounded-full border border-white/15 bg-white/5 px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-white hover:text-black">
+                View Order
+            </a>
+            <a href="{{ url_for('shop.index') }}" class="rounded-full bg-[#dfbb96] px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-[#050505] transition-all hover:bg-[#ebd0b4]">
+                Continue Shopping
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

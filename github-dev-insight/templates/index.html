@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}DevInsight - GitHub Developer Analytics{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <h1 class="hero-title">Developer Analytics, Elevated.</h1>
+    <p class="hero-subtitle">
+        Unlock deep performance metrics, repository rankings, and language distribution for any public GitHub profile.
+    </p>
+
+    {% if error %}
+    <div class="error-banner">
+        {{ error }}
+    </div>
+    {% endif %}
+
+    <form action="/analyze" method="POST" class="search-box">
+        <input
+            type="text"
+            name="username"
+            class="search-input"
+            placeholder="Enter GitHub Username (e.g. torvalds)..."
+            required
+            autocomplete="off"
+        >
+        <button type="submit" class="btn-primary">Analyze</button>
+    </form>
+</section>
+{% endblock %}

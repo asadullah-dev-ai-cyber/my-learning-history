@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}My Wishlist | Azizi & CO{% endblock %}
+
+{% block content %}
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-8">
+        <h1 class="text-3xl font-extrabold text-white">Saved Wishlist</h1>
+        <p class="text-slate-400 text-sm mt-1">Keep track of hardware releases you're eyeing.</p>
+    </div>
+
+    {% if wishlist %}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {% for item in wishlist %}
+        {% set product = item.product %}
+        <div class="bg-slate-900/40 rounded-2xl border border-slate-800/80 overflow-hidden flex flex-col">
+            <div class="aspect-square relative bg-slate-950">
+                {% set primary_img = product.images|selectattr('is_primary')|first %}
+                <img src="{{ primary_img.image_url if primary_img else (product.images[0].image_url if product.images else 'https://via.placeholder.com/400') }}" alt="{{ product.name }}" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+                <h3 class="text-lg font-bold text-white">{{ product.name }}</h3>
+                <span class="text-xl font-extrabold text-white mt-2">${{ "%.2f"|format(product.price) }}</span>
+                <div class="mt-6 flex items-center gap-3">
+                    <a href="{{ url_for('shop.product_detail', slug=product.slug) }}" class="flex-1 text-center py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold rounded-lg transition-colors">
+                        View Item
+                    </a>
+                    <form action="{{ url_for('social.toggle_wishlist', product_id=product.id) }}" method="POST">
+                        <button type="submit" class="p-2.5 bg-slate-800 hover:bg-red-600/20 text-red-400 border border-slate-700 hover:border-red-500/30 rounded-lg transition-colors" title="Remove">
+                            <i class="fa-solid fa-trash text-xs"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center py-16 bg-slate-900/30 border border-slate-800 rounded-2xl">
+        <p class="text-slate-400">Your wishlist is currently empty.</p>
+        <a href="{{ url_for('shop.catalog') }}" class="inline-block mt-4 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold rounded-lg transition-colors">
+            Browse Catalog
+        </a>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

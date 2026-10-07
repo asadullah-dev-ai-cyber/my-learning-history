@@ -1,0 +1,435 @@
+{% extends "base.html" %}
+
+{% block title %}Asadullah Azizi's Portfolio{% endblock %}
+
+{% block content %}
+
+<!-- 🚀 1. HERO SECTION WITH PROFILE PICTURE -->
+<section class="relative py-20 lg:py-28 border-b border-borderDark overflow-hidden">
+    <!-- Subtle Background Glow -->
+    <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brandOrange-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <!-- 2-Column Hero Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+            <!-- Left Column: Intro & Call to Action (7 cols) -->
+            <div class="lg:col-span-7">
+                <!-- Top Pill Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-amber-200/90 text-xs font-semibold mb-8 reveal delay-1">
+                    <span class="w-2.5 h-2.5 rounded-full bg-brandOrange-500 animate-pulse"></span>
+                    Kabul University • BCS in AI & Info Systems
+                </div>
+
+                <!-- Headline -->
+                <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight mb-8 leading-[1.1] reveal delay-2">
+                    Empowering Systems, <br>
+                    <span class="text-brandOrange-500">Building Futures</span>
+                </h1>
+
+                <!-- Description -->
+                <p class="text-base sm:text-lg text-slate-300 font-normal mb-10 leading-relaxed reveal delay-3">
+                    Computer Science student & aspiring Full-Stack Developer. I specialize in building web applications,
+                    Python automation tools, APIs, and practical Generative AI solutions.
+                </p>
+
+                <!-- Hero Action Buttons -->
+                <div class="flex flex-wrap items-center gap-4 reveal delay-4">
+                    <a href="#projects"
+                       class="px-8 py-4 rounded-full bg-brandOrange-600 text-white font-bold text-sm hover:bg-brandOrange-500 transition-all shadow-xl shadow-brandOrange-600/30 flex items-center gap-2">
+                        View My Projects
+                    </a>
+                    <a href="#contact"
+                       class="px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-bold text-sm hover:bg-white/10 transition-all">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column: Profile Picture Card (5 cols) -->
+            <div class="lg:col-span-5 flex justify-center lg:justify-end reveal delay-3">
+                <div class="relative group">
+                    <!-- Ambient Glow Effect behind picture frame -->
+                    <div class="absolute -inset-1 bg-gradient-to-r from-brandOrange-600 to-amber-500 rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-500"></div>
+
+                    <!-- Picture Container Frame -->
+                    <div class="relative w-64 h-80 sm:w-72 sm:h-96 rounded-3xl overflow-hidden border-2 border-borderDark bg-cardDark p-2 group-hover:border-brandOrange-500/80 transition-all duration-500 shadow-2xl">
+                        <img
+                                src="{{ url_for('static', filename='images/profile.jpg') }}"
+                                alt="Asadullah Azizi"
+                                class="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
+                                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Asadullah+Azizi&background=ea580c&color=fff&size=512';"
+                        >
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 📊 STAT COUNTER ROW (ANIMATED) -->
+        <div class="grid grid-cols-3 gap-6 pt-12 mt-12 border-t border-white/10 reveal">
+            <div>
+                <h4 class="text-3xl sm:text-4xl font-black text-brandOrange-500 stat-counter" data-target="97"
+                    data-suffix="%">0%</h4>
+                <p class="text-xs sm:text-sm text-slate-400 font-medium mt-1">High School Score</p>
+            </div>
+            <div>
+                <h4 class="text-3xl sm:text-4xl font-black text-brandOrange-500 stat-counter" data-target="10"
+                    data-suffix="+">0+</h4>
+                <p class="text-xs sm:text-sm text-slate-400 font-medium mt-1">Projects Completed</p>
+            </div>
+            <div>
+                <h4 class="text-3xl sm:text-4xl font-black text-brandOrange-500 stat-counter" data-target="2026"
+                    data-suffix="">0</h4>
+                <p class="text-xs sm:text-sm text-slate-400 font-medium mt-1">DataCamp Certified</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- 👨‍💻 2. ABOUT SECTION -->
+<section id="about" class="py-20 border-b border-borderDark bg-black/20 reveal">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+            <div class="lg:col-span-5">
+                <h2 class="text-3xl font-black text-white mb-6">About Me</h2>
+                <p class="text-slate-300 leading-relaxed mb-4">
+                    I am a motivated Bachelor of Computer Science student at Kabul University, specializing in
+                    Artificial Intelligence & Information Systems.
+                </p>
+                <p class="text-slate-400 leading-relaxed mb-6">
+                    My primary language is Python, backed by hands-on experience with Flask, SQL, REST APIs, Selenium,
+                    and Git. Alongside web development, I am actively expanding my skill set in Prompt Engineering,
+                    LLMOps, and Generative AI.
+                </p>
+                <div class="p-5 rounded-2xl bg-cardDark border border-borderDark">
+                    <span class="text-xs uppercase font-extrabold text-brandOrange-500 tracking-wider">Current Goal</span>
+                    <p class="text-sm text-slate-200 mt-1 font-semibold">
+                        Seeking a Full-Stack Web Developer or Software Engineering Internship opportunity to contribute
+                        to real-world projects.
+                    </p>
+                </div>
+            </div>
+
+            <!-- What I Can Build Grid -->
+            <div class="lg:col-span-7">
+                <h3 class="text-2xl font-black text-white mb-6">What I Can Build</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="p-6 rounded-2xl bg-cardDark border border-borderDark hover:border-brandOrange-500/50 transition-colors reveal delay-1">
+                        <i class="fa-solid fa-laptop-code text-brandOrange-500 text-2xl mb-3"></i>
+                        <h4 class="text-white font-bold mb-1">Web Applications</h4>
+                        <p class="text-xs text-slate-400">Full-stack web apps built using Python, Flask, and dynamic
+                            database backends.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-cardDark border border-borderDark hover:border-brandOrange-500/50 transition-colors reveal delay-2">
+                        <i class="fa-solid fa-network-wired text-brandOrange-500 text-2xl mb-3"></i>
+                        <h4 class="text-white font-bold mb-1">RESTful APIs</h4>
+                        <p class="text-xs text-slate-400">Designing clean API endpoints for modern web and mobile
+                            services.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-cardDark border border-borderDark hover:border-brandOrange-500/50 transition-colors reveal delay-3">
+                        <i class="fa-solid fa-robot text-brandOrange-500 text-2xl mb-3"></i>
+                        <h4 class="text-white font-bold mb-1">AI Applications</h4>
+                        <p class="text-xs text-slate-400">Integrating OpenAI API, Hugging Face, and LLM workflows into
+                            apps.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-cardDark border border-borderDark hover:border-brandOrange-500/50 transition-colors reveal delay-4">
+                        <i class="fa-solid fa-gears text-brandOrange-500 text-2xl mb-3"></i>
+                        <h4 class="text-white font-bold mb-1">Automation & Scraping</h4>
+                        <p class="text-xs text-slate-400">Automating browser tasks and extracting web data using
+                            Selenium & Python.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- 🛠️ 3. TECHNICAL SKILLS MATRIX -->
+<section id="skills" class="py-20 border-b border-borderDark reveal">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-black text-white mb-2">Technical Skills</h2>
+        <p class="text-slate-400 mb-10">Tools and technologies I use to build robust software.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <div class="p-6 rounded-2xl bg-cardDark border border-borderDark reveal delay-1">
+                <h3 class="text-lg font-bold text-brandOrange-500 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-code"></i> Languages & Web
+                </h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200 text-xs font-semibold">Python</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200 text-xs font-semibold">Flask</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200 text-xs font-semibold">HTML5 / CSS3</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200 text-xs font-semibold">REST APIs</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200 text-xs font-semibold">OOP</span>
+                </div>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-cardDark border border-borderDark reveal delay-2">
+                <h3 class="text-lg font-bold text-brandOrange-500 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-database"></i> Databases & Dev Tools
+                </h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200 text-xs font-semibold">SQL</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200 text-xs font-semibold">SQLite / PostgreSQL</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200 text-xs font-semibold">Git / GitHub</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200 text-xs font-semibold">Selenium</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200 text-xs font-semibold">Web Scraping</span>
+                </div>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-cardDark border border-borderDark reveal delay-3">
+                <h3 class="text-lg font-bold text-brandOrange-500 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-brain"></i> AI & Data Stack
+                </h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200 text-xs font-semibold">OpenAI API</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200 text-xs font-semibold">Hugging Face</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200 text-xs font-semibold">Prompt Engineering</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200 text-xs font-semibold">LLMOps Concepts</span>
+                    <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-200 text-xs font-semibold">Data Analysis</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- 💻 4. FEATURED PROJECTS -->
+<section id="projects" class="py-20 border-b border-borderDark bg-black/20 reveal">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-end mb-10">
+            <div>
+                <h2 class="text-3xl font-black text-white">Featured Projects</h2>
+                <p class="text-slate-400 mt-1">Dynamic applications managed via SQLite database.</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% if projects %}
+            {% for proj in projects %}
+            <div class="rounded-2xl bg-cardDark border border-borderDark hover:border-brandOrange-500/50 transition-all flex flex-col justify-between p-6 reveal delay-{{ loop.index }}">
+                <div>
+                    <div class="flex justify-between items-start mb-3">
+                            <span class="px-3 py-1 rounded-full bg-brandOrange-600/10 text-brandOrange-500 text-xs font-extrabold">
+                                {{ proj.category if proj.category else 'Project' }}
+                            </span>
+                        {% if proj.is_featured %}
+                        <span class="text-amber-400 text-xs font-bold"><i class="fa-solid fa-star"></i> Featured</span>
+                        {% endif %}
+                    </div>
+                    <h3 class="text-xl font-extrabold text-white mb-2">{{ proj.title }}</h3>
+                    <p class="text-slate-300 text-sm mb-4 line-clamp-2">{{ proj.tagline }}</p>
+
+                    <div class="flex flex-wrap gap-1.5 mb-6">
+                        {% if proj.tech_tags %}
+                        {% for tag in proj.tech_tags.split(',') %}
+                        <span class="px-2.5 py-0.5 rounded-full bg-white/5 text-slate-400 text-xs font-medium border border-white/5">{{ tag.strip() }}</span>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4 pt-4 border-t border-borderDark text-sm">
+                    {% if proj.github_url %}
+                    <a href="{{ proj.github_url }}" target="_blank"
+                       class="text-slate-300 hover:text-white flex items-center gap-1.5 font-semibold">
+                        <i class="fa-brands fa-github"></i> Code
+                    </a>
+                    {% endif %}
+                    <a href="{{ url_for('project_detail', project_id=proj.id) }}"
+                       class="text-brandOrange-500 hover:text-brandOrange-500 font-bold ml-auto">
+                        Case Study &rarr;
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="col-span-full p-8 rounded-2xl bg-cardDark border border-borderDark text-center reveal">
+                <i class="fa-solid fa-database text-brandOrange-500 text-3xl mb-3"></i>
+                <h3 class="text-white font-bold text-lg">No Database Projects Found</h3>
+                <p class="text-slate-400 text-sm max-w-md mx-auto mt-1">Run `python seed.py` in your terminal to
+                    populate your initial showcase projects!</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- 🎓 5. EDUCATION & CERTIFICATIONS -->
+<section id="education" class="py-20 border-b border-borderDark reveal">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+            <!-- Education Timeline -->
+            <div class="reveal delay-1">
+                <h2 class="text-2xl font-black text-white mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-graduation-cap text-brandOrange-500"></i> Education Journey
+                </h2>
+                <div class="space-y-6 border-l-2 border-borderDark pl-6 ml-2">
+                    <div class="relative">
+                        <span class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-brandOrange-600 ring-4 ring-brandDark"></span>
+                        <span class="text-xs font-bold text-brandOrange-500">2024 — Present</span>
+                        <h3 class="text-lg font-bold text-white">Bachelor of Computer Science (BCS)</h3>
+                        <p class="text-slate-300 text-sm">Kabul University</p>
+                        <p class="text-xs text-slate-400 mt-1">Specializing in Artificial Intelligence & Information
+                            Systems.</p>
+                    </div>
+                    <div class="relative">
+                        <span class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-slate-700 ring-4 ring-brandDark"></span>
+                        <span class="text-xs font-bold text-slate-400">2024</span>
+                        <h3 class="text-lg font-bold text-white">Habibya High School Graduation</h3>
+                        <p class="text-slate-400 text-sm">Graduated with a 97% overall average score.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications & Credentials -->
+            <div class="reveal delay-2">
+                <h2 class="text-2xl font-black text-white mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-certificate text-brandOrange-500"></i> Certifications & Credentials
+                </h2>
+                <div class="space-y-4">
+
+                    <!-- OpenAI API Certificate -->
+                    <a href="{{ url_for('static', filename='uploads/Working wth the OpenAI API Certificate.pdf') }}"
+                       target="_blank"
+                       class="p-4 rounded-2xl bg-cardDark border border-borderDark flex items-start gap-4 hover:border-brandOrange-500/60 transition-all group block">
+                        <div class="p-2.5 rounded-xl bg-brandOrange-600/10 text-brandOrange-500 group-hover:bg-brandOrange-600 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-file-pdf text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-white font-bold text-sm group-hover:text-brandOrange-500 transition-colors">
+                                    Working with the OpenAI API</h3>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-500 group-hover:text-brandOrange-500"></i>
+                            </div>
+                            <p class="text-xs text-slate-400 mt-1">DataCamp • Earned June 2026</p>
+                        </div>
+                    </a>
+
+                    <!-- LLMOps Concepts Certificate -->
+                    <a href="{{ url_for('static', filename='uploads/LLMOps Concepts Certificate.pdf') }}"
+                       target="_blank"
+                       class="p-4 rounded-2xl bg-cardDark border border-borderDark flex items-start gap-4 hover:border-brandOrange-500/60 transition-all group block">
+                        <div class="p-2.5 rounded-xl bg-brandOrange-600/10 text-brandOrange-500 group-hover:bg-brandOrange-600 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-file-pdf text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-white font-bold text-sm group-hover:text-brandOrange-500 transition-colors">
+                                    LLMOps Concepts</h3>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-500 group-hover:text-brandOrange-500"></i>
+                            </div>
+                            <p class="text-xs text-slate-400 mt-1">DataCamp • Earned July 2026</p>
+                        </div>
+                    </a>
+
+                    <!-- Responsive API Certificate -->
+                    <a href="{{ url_for('static', filename='uploads/Responsive API Certificate.pdf') }}" target="_blank"
+                       class="p-4 rounded-2xl bg-cardDark border border-borderDark flex items-start gap-4 hover:border-brandOrange-500/60 transition-all group block">
+                        <div class="p-2.5 rounded-xl bg-brandOrange-600/10 text-brandOrange-500 group-hover:bg-brandOrange-600 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-file-pdf text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-white font-bold text-sm group-hover:text-brandOrange-500 transition-colors">
+                                    Developing Responsive APIs</h3>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-500 group-hover:text-brandOrange-500"></i>
+                            </div>
+                            <p class="text-xs text-slate-400 mt-1">DataCamp • Earned July 2026</p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+            <!-- 📬 6. INTERACTIVE CONTACT FORM -->
+
+            <section id="contact" class="py-20 relative">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+                        <!-- Left Column: Heading & Contact Info (5 columns) -->
+                        <div class="lg:col-span-5 space-y-6 reveal">
+                            <h2 class="text-3xl sm:text-4xl font-black text-white leading-tight">
+                                Let's Connect
+                            </h2>
+                            <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                                Whether you have an internship opportunity, project idea, or just want to discuss
+                                software engineering, my inbox is open.
+                            </p>
+
+                            <div class="space-y-4 pt-4">
+                                <div class="flex items-center gap-4 p-4 rounded-2xl bg-cardDark border border-borderDark">
+                                    <div class="p-3 rounded-xl bg-brandOrange-600/10 text-brandOrange-500">
+                                        <i class="fa-solid fa-envelope text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-slate-400 font-medium">Direct Email</p>
+                                        <a href="mailto:habibya1401@gmail.com"
+                                           class="text-sm font-bold text-white hover:text-brandOrange-500 transition-colors">
+                                            habibya1401@gmail.com
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-4 p-4 rounded-2xl bg-cardDark border border-borderDark">
+                                    <div class="p-3 rounded-xl bg-brandOrange-600/10 text-brandOrange-500">
+                                        <i class="fa-solid fa-location-dot text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-slate-400 font-medium">Location</p>
+                                        <p class="text-sm font-bold text-white">Kabul, Afghanistan</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Contact Form (7 columns) -->
+                        <div class="lg:col-span-7 bg-cardDark border border-borderDark rounded-3xl p-6 sm:p-8 reveal delay-2">
+                            <form action="{{ url_for('handle_contact') }}" method="POST" class="space-y-5">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Your
+                                            Name</label>
+                                        <input type="text" name="name" required placeholder="John Doe"
+                                               class="w-full px-4 py-3 rounded-xl bg-brandDark border border-borderDark text-white placeholder-slate-500 focus:outline-none focus:border-brandOrange-500 transition-colors text-sm">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Your
+                                            Email</label>
+                                        <input type="email" name="email" required placeholder="john@example.com"
+                                               class="w-full px-4 py-3 rounded-xl bg-brandDark border border-borderDark text-white placeholder-slate-500 focus:outline-none focus:border-brandOrange-500 transition-colors text-sm">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Subject</label>
+                                    <input type="text" name="subject" required
+                                           placeholder="Software Engineering Opportunity"
+                                           class="w-full px-4 py-3 rounded-xl bg-brandDark border border-borderDark text-white placeholder-slate-500 focus:outline-none focus:border-brandOrange-500 transition-colors text-sm">
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Message</label>
+                                    <textarea name="message" rows="4" required placeholder="Write your message here..."
+                                              class="w-full px-4 py-3 rounded-xl bg-brandDark border border-borderDark text-white placeholder-slate-500 focus:outline-none focus:border-brandOrange-500 transition-colors text-sm resize-none"></textarea>
+                                </div>
+
+                                <button type="submit"
+                                        class="w-full py-4 rounded-full bg-brandOrange-600 hover:bg-brandOrange-500 text-white font-bold text-sm transition-all shadow-xl shadow-brandOrange-600/30">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            {% endblock %}
